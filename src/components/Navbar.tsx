@@ -50,7 +50,7 @@ const Navbar = () => {
                 <div className='relative'>
                     <button onClick={() => setIsProfileOpen(!isProfileOpen)}
                         className='flex items-center gap-2 rounderd-lg px-2 py-2 transition hover:bg-gray-50'
-                        aaria-expanded ={isProfileOpen} 
+                        aria-expanded ={isProfileOpen} 
                         aria-label='Open profile menu'
                         >
                             {/* profile image */}

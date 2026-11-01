@@ -9,13 +9,13 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [products, setProducts] = useState<ProductType[]>([])
   useEffect(() =>{
-    fetch(' https://openapi.programming-hero.com/api/bazardor')
+    fetch(' https://api.api-store.workers.dev/api/bazardor')
     .then((res)=> res.json())
     .then((data) =>{
-      console.log(data);
+      console.log("API RESPONSE:",data);
       setProducts(data.data);
     })
-      .catch((error)=>console.log(error));
+      .catch((error)=>console.log("API ERROR:",error));
 
 
   }, []);
@@ -37,7 +37,7 @@ export default function Home() {
     <section id="products" className="mx-auto max-w-5xl px-4 py-8 scroll-mt-40">
       
       <h2 className="mb-5 text-2xl font-bold">সব পণ্য</h2>
-      {products.map((product) =>(
+      { Array.isArray(products)&& products.map((product) =>(
         <div key={product.id}>
           {product.name}
 
