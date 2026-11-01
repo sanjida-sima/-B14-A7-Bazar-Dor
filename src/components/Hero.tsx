@@ -26,7 +26,7 @@ const Hero = () => {
                         {/* btn */}
                         <Link
                         href='#products'
-                        className="inline-flex items-center justify-center rounded-l-2xl bg-green-700 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-green-800"
+                        className="inline-flex items-center justify-center rounded-full bg-green-700 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-green-800"
                         >
                             সব পণ্য দেখুন
 

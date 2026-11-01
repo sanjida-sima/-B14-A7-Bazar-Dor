@@ -6,7 +6,18 @@ export default function Home() {
     <Hero />
     {/* today price increased */}
     <section className="mx-auto max-w-5xl px-4 py-8">
+      {/* product section will come here */}
 
+    </section>
+
+    {/* today price decrease */}
+    <section className="mx-auto max-w-5xl px-4 py-8">
+      {/* product section will come here */}
+    </section>
+
+    {/* all products */}
+    <section id="products" className="mx-auto max-w-5xl px-4 py-8 scroll-mt-40">
+      {/* all product will here */}
     </section>
 
    </main>
