@@ -28,7 +28,24 @@ const PriceTicker = () => {
                     className="flex items-center gap-2 px-5 py-3 border-r border-gray-100 whitespace-nowrap" 
                     >
                         {/* product-emoji */}
-                        
+                        <span className="text-sm">
+                            {item.emoji}
+                        </span>
+                        {/* product name */}
+                        <span  className="text-sm font-medium text-gray-700">
+                            {item.name}
+                        </span>
+                        {/* product price */}
+                        <span className="text-sm text-gray-700 ">
+                            {formatNumber(item.price)} টাকা/কেজি
+                        </span>
+                        {/* price change */}
+                        <span className="{` text-sm font-semibold ${item.change > 0 
+                        ? 'text-red-500' : item.change < 0 ?'text-green-500' : 'text-gray-500'
+                        }`}">
+                          {item.change > 0 ? `▲ ${formatNumber(item.change)}%` : item.change <0 ? `▼ ${formatNumber(Math.abs( item.change))} %` : '-'}
+                        </span>
+
 
                     </div>
                 ))}
