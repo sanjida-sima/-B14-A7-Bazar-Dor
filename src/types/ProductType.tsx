@@ -1,13 +1,28 @@
 export interface ProductType{
     id: number;
-    name?: string;
-    nameBn?:string;
-    category?: string;
-    categoryNameBn?:string;
-    unit?: string;
-    price: number;
-    priceChange?: number;
-    description? : string;
-    emoji?:string;
+   slug: string;
+    nameBn:string;
+    category: string;
+    categoryNameBn:string;
+    unit: string;
+    categoryIcon:string;
+    image:string;
+
+    today:number;
+    yesterday:number;
+    lastWeek:number;
+    lastMonth:number;
+
+    change:{
+        dir: 'up' | 'down' | 'same'
+        pct:number;
+    };
+
+    markets:{
+        market:string;
+        division:string;
+        min:number;
+        max:number;
+    } [];
 
 }

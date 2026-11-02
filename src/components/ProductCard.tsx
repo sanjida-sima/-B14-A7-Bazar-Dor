@@ -7,11 +7,11 @@ type ProductCardProps = {
 };
 const ProductCard = ({product} :ProductCardProps) => {
 
-const change = Number(product.priceChange ?? 0);
+const change = Number(product.change?.pct ?? 0);
 
 
 const getEmoji =()=>{
-    if (product.emoji)return product.emoji;
+    if (product.categoryIcon)return product.categoryIcon;
 
     const category = product.category?.toLocaleLowerCase();
 
@@ -40,25 +40,26 @@ const getEmoji =()=>{
                     {getEmoji()}
                 </div>
                 
-                <div className="min-w-0">
+              <div className="min-w-0">
              <h3 className="text-lg font-bold text-gray-800">
-                {product.nameBn || product.name}
+                {product.nameBn}
             </h3>
             <p className="mt-1 text-sm text-gray-500">
                 প্রতি{product.unit || "একক"}
             </p>
+           </div>
 
             </div>
-           
-           </div>
+
+          
            {/* price */}
-            <div className="mt-4 flex items-center justify-between">
+            <div className="mt-4 flex items-end justify-between">
                 <div>
                     <p className="mb-1 text-xs text-[#68756b]">
                        আজকের দাম 
                     </p>
                     <h2 className="text-xl font-bold text-gray-900">
-                     {new Intl.NumberFormat('bn-BD').format(product.price)} 
+                     {new Intl.NumberFormat('bn-BD').format(product.today)} 
                      <span className="ml-1 text-sm font-medium">টাকা</span>
                 </h2>
 
