@@ -32,23 +32,24 @@ const getEmoji =()=>{
 
 
     return (
-        <div className="rounded-2xl border border-[#dfe8e0]bg-[#fbfdfb] p-4  transition-all hover:shadow-md duration-300 hover:translate-y-1">
+        <div className="rounded-2xl border border-[#dfe8e0] bg-[#fbfdfb] p-4  transition-all hover:shadow-md duration-300 hover:translate-y-1">
 {/* information */}
             <div className="flex items-center gap-3">
+
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#f0f5f0] text-2xl">
                     {getEmoji()}
                 </div>
-
-
-            </div>
-
-           <div className="min-w-0">
+                
+                <div className="min-w-0">
              <h3 className="text-lg font-bold text-gray-800">
                 {product.nameBn || product.name}
             </h3>
             <p className="mt-1 text-sm text-gray-500">
                 প্রতি{product.unit || "একক"}
             </p>
+
+            </div>
+           
            </div>
            {/* price */}
             <div className="mt-4 flex items-center justify-between">
