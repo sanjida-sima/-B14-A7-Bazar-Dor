@@ -6,25 +6,77 @@ type ProductCardProps = {
     product:ProductType;
 };
 const ProductCard = ({product} :ProductCardProps) => {
+
+const change = Number(product.priceChange ?? 0);
+
+
+const getEmoji =()=>{
+    if (product.emoji)return product.emoji;
+
+    const category = product.category?.toLocaleLowerCase();
+
+
+    const icons: Record<string,string> = {
+        chal: '🍚',
+        dal:'🫘',
+        tel:'🫙',
+        sobji:'🥔',
+        mach:'🐟',
+        mangsho:'🍗',
+        "dim-dui":"🥚",
+        moshla:'🌶️',
+
+    };
+    return icons [category || ''] || '🛒'
+};
+
+
     return (
-        <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:shadow-md">
-            <h3 className="text-lg font-bold text-gray-800">
-                {product.name}
+        <div className="rounded-2xl border border-[#dfe8e0]bg-[#fbfdfb] p-4  transition-all hover:shadow-md duration-300 hover:translate-y-1">
+{/* information */}
+            <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#f0f5f0] text-2xl">
+                    {getEmoji}
+                </div>
+
+
+            </div>
+
+           <div className="min-w-0">
+             <h3 className="text-lg font-bold text-gray-800">
+                {product.nameBn || product.name}
             </h3>
             <p className="mt-1 text-sm text-gray-500">
-                {product.category}/{product.unit}
+                প্রতি{product.unit || "একক"}
             </p>
+           </div>
+           {/* price */}
             <div className="mt-4 flex items-center justify-between">
-                <h2 className="text-xl font-bold text-gray-900">
-                     ৳{new Intl.NumberFormat('bn-BD').format(product.price)}
+                <div>
+                    <p className="mb-1 text-xs text-[#68756b]">
+                       আজকের দাম 
+                    </p>
+                    <h2 className="text-xl font-bold text-gray-900">
+                     {new Intl.NumberFormat('bn-BD').format(product.price)} 
+                     <span className="ml-1 text-sm font-medium">টাকা</span>
                 </h2>
-                <span className={`rounded-full px-3 py-1  text-sm font-semibold ${product.priceChange > 0 ? 'bg-red-100 text-red-600'
-                    :product.priceChange < 0 ? 'bg-green-100':'bg-gray-500'
+
+                </div>
+                {change !== 0 &&(
+                     <span className={`rounded-full px-3 py-1  text-sm font-semibold ${change > 0 ? 'bg-red-50 text-red-600':
+                    'bg-green-50 text-green-600'
                 } `}>
-                    {product.priceChange > 0 ? `▲ ${product.priceChange}%`:product.priceChange < 0 ? `▼ ${Math.abs(product.priceChange)}%`:'-'}
+                    {change > 0 ? '▲':'▼' }{' '} 
+                    {new Intl.NumberFormat('bn-BD').format(
+                        Math.abs(change)
+                    )}%
 
 
                 </span>
+
+                )}
+                
+               
             </div>
             
         </div>
