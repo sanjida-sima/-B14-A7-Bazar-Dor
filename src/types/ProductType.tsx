@@ -1,10 +1,13 @@
 export interface ProductType{
     id: number;
-    name: string;
-    category: string;
-    unit: string;
+    name?: string;
+    nameBn?:string;
+    category?: string;
+    categoryNameBn?:string;
+    unit?: string;
     price: number;
-    priceChange: number;
+    priceChange?: number;
     description? : string;
+    emoji?:string;
 
 }
