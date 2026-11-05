@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 
 type CategoryPageProps = {
-    params : promise <{
+    params : Promise <{
         slug: string;
 }>;
 };
@@ -145,8 +145,8 @@ return(
             {/* product */}
             {!loading && !error && products.length > 0 && (
                 <div>
-                    <p className="mb-4 text-sm text-gray-500">
-                        মোট{new Intl.NumberFormat('bn-BD').format(products.length)} টি পণ্য
+                    <p>
+                        মোট{new Intl.NumberFormat('bn-BD').format(products.length)}টি পণ্য
                     </p>
                 <div>
                     {sortedProducts.map((product) =>(
