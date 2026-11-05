@@ -4,6 +4,7 @@ import { ProductType } from "@/types/ProductType";
 
 import Hero from "@/components/Hero";
 import { useEffect, useState } from "react";
+import CategoryLink from "@/components/CategoryLink";
 
 export default function Home() {
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -57,6 +58,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#f0f6f1]">
       <Hero />
+      <CategoryLink />
 
       {/* loading */}
       {loading && (
